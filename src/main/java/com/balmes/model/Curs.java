@@ -1,19 +1,40 @@
 package com.balmes.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Curs {
+
 	private int cursId;
 	private String titolCurs;
 	private String descCurs;
 	private String urlCurs;
-	
-	public Curs() {}
-	
-	public Curs(int cursId, String titolCurs, String descCurs, String urlCurs) {
-		super();
+	private List<Estudiant> estudiants = new ArrayList<>();
+
+	public Curs(int cursId, String titolCurs, String descCurs, String urlCurs, List<Estudiant> estudiants) {
 		this.cursId = cursId;
 		this.titolCurs = titolCurs;
 		this.descCurs = descCurs;
 		this.urlCurs = urlCurs;
+		this.estudiants = estudiants;
+	}
+
+	public Curs() {
+	}
+
+	public Curs(int cursId, String titolCurs, String descCurs, String urlCurs) {
+		this.cursId = cursId;
+		this.titolCurs = titolCurs;
+		this.descCurs = descCurs;
+		this.urlCurs = urlCurs;
+	}
+
+	public List<Estudiant> getEstudiants() {
+		return estudiants;
+	}
+
+	public void setEstudiants(List<Estudiant> estudiants) {
+		this.estudiants = estudiants;
 	}
 
 	public int getCursId() {
@@ -53,5 +74,5 @@ public class Curs {
 		return "Curs [cursId=" + cursId + ", titolCurs=" + titolCurs + ", descCurs=" + descCurs + ", urlCurs=" + urlCurs
 				+ "]";
 	}
-	
+
 }

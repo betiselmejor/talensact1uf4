@@ -1,0 +1,11 @@
+version: '3.9'
+
+services:
+
+  tomcat:
+    image: tomcat:8.5-jdk11
+    container_name: projecte-cursosMVC-tomcat
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./target/Cursos-0.0.1-SNAPSHOT.war:/usr/local/tomcat/webapps/CursosMVC.war

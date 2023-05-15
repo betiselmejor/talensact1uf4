@@ -1,26 +1,26 @@
 package com.balmes.config;
 
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 
-import com.balmes.repository.cursRepository;
-import com.balmes.service.cursService;
-
+@EnableWebMvc
 @Configuration
 @ComponentScan("com.balmes")
 public class AppConfig {
 
-	/*
-	@Bean("cursRepositori")
-	public cursRepository getCursRepository() {
-		return new cursRepository();
-	}
-	
-	@Bean("cursServei")
-	public cursService getCursService() {
-//		return new cursService();
-		return new cursService(getCursRepository());
-	}
-	*/
+    @Bean
+    public ViewResolver viewResolver() {
+        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+
+        viewResolver.setViewClass(JstlView.class);
+        viewResolver.setPrefix("/WEB-INF/view/");
+        return viewResolver;
+    }
 }
+
